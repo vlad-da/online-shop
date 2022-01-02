@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use(fileUpload({
   useTempFiles: true
-}))
+}));
 
 //COnnect to mogodb
 
