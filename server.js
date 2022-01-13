@@ -6,6 +6,7 @@ const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 
 
+
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
@@ -18,8 +19,7 @@ app.use(fileUpload({
 app.use('/user', require('./routes/userRouter'));
 
 
-
-//COnnect to mogodb
+//COnnect to mongodb
 const URI = process.env.MONGODB_URL;
 mongoose.connect(URI, {
   useNewUrlParser: true, 
@@ -29,9 +29,8 @@ mongoose.connect(URI, {
   console.log('Connected to MongoDB');
 });
 
-const PORT = process.env.PORT || 3000;
+
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log('server is running on port', PORT);
 });
-
-
