@@ -6,7 +6,6 @@ const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 
 
-
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
@@ -17,6 +16,7 @@ app.use(fileUpload({
 
 //Routes
 app.use('/user', require('./routes/userRouter'));
+app.use('/api', require('./routes/categoryRouter'));
 
 
 //COnnect to mongodb
