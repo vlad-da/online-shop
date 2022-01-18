@@ -1,9 +1,41 @@
 const Products = require('../models/productModel');
 
+//filter, sorting, paginating
+
+class APIfeatures {
+    constructor(query, queryString) {
+        this.query = query;
+        this.queryString = queryString;
+    }
+    filtering(){
+        const queryObj = {...this.queryString}; //queryString = req.query
+    
+        const excludedFields = ['page', 'sort', 'limit'];
+        excludedFields.forEach(el => delete(queryObj[el]));
+
+        let queryStr = JSON.stringify(queryObj);
+        queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => '$' + match);
+
+        //gte = greater than or equal
+        //lte = lesser than or equal
+        //lt = lesser than 
+        //gt = greater than 
+
+        this.query.find(JSON.parse(queryStr));
+
+        return this;
+    }
+
+    sorting(){}
+
+    paginating(){}
+}
+
 const productCtrl = {
     getProducts: async(req, res) => {
       try {
-          const products = await Products.find();
+          const features = new APIfeatures(Products.find(), req.query).filtering();
+          const products = await features.query;
 
           res.json(products);
       } catch (err) {
