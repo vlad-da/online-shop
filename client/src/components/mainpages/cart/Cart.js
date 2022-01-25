@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GlobalState } from "../../../GlobalState";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Cart() {
   const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
+  const [token] = state.token;
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -19,6 +21,16 @@ function Cart() {
     getTotal();
   }, [cart]);
 
+  const addToCart = async () => {
+    await axios.patch(
+      "/user/addcart",
+      { cart },
+      {
+        headers: { Authorization: token },
+      }
+    );
+  };
+
   const increment = (id) => {
     cart.forEach((item) => {
       if (item._id === id) {
@@ -26,6 +38,7 @@ function Cart() {
       }
     });
     setCart([...cart]);
+    addToCart();
   };
 
   const decrement = (id) => {
@@ -35,6 +48,7 @@ function Cart() {
       }
     });
     setCart([...cart]);
+    addToCart();
   };
 
   const removeProduct = (id) => {
@@ -46,6 +60,7 @@ function Cart() {
       });
 
       setCart([...cart]);
+      addToCart();
     }
   };
 
