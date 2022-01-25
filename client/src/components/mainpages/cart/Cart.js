@@ -21,7 +21,7 @@ function Cart() {
     getTotal();
   }, [cart]);
 
-  const addToCart = async () => {
+  const addToCart = async (cart) => {
     await axios.patch(
       "/user/addcart",
       { cart },
@@ -37,8 +37,9 @@ function Cart() {
         item.quantity += 1;
       }
     });
+
     setCart([...cart]);
-    addToCart();
+    addToCart(cart);
   };
 
   const decrement = (id) => {
@@ -47,8 +48,9 @@ function Cart() {
         item.quantity === 1 ? (item.quantity = 1) : (item.quantity -= 1);
       }
     });
+
     setCart([...cart]);
-    addToCart();
+    addToCart(cart);
   };
 
   const removeProduct = (id) => {
@@ -60,26 +62,41 @@ function Cart() {
       });
 
       setCart([...cart]);
-      addToCart();
+      addToCart(cart);
     }
   };
 
   const tranSuccess = async (payment) => {
-    console.log(payment);
+    const { paymentID, address } = payment;
+
+    await axios.post(
+      "/api/payment",
+      { cart, paymentID, address },
+      {
+        headers: { Authorization: token },
+      }
+    );
+
+    setCart([]);
+    addToCart([]);
+    alert("You have successfully placed an order.");
   };
 
   if (cart.length === 0)
     return (
       <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
     );
+
   return (
     <div>
       {cart.map((product) => (
         <div className="detail cart" key={product._id}>
           <img src={product.images.url} alt="" />
+
           <div className="box-detail">
             <h2>{product.title}</h2>
-            <h3>${product.price * product.quantity}</h3>
+
+            <h3>$ {product.price * product.quantity}</h3>
             <p>{product.description}</p>
             <p>{product.content}</p>
 
