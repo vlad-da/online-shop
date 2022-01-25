@@ -37,6 +37,18 @@ function Cart() {
     setCart([...cart]);
   };
 
+  const removeProduct = (id) => {
+    if (window.confirm("Do you want to delete this product?")) {
+      cart.forEach((item, index) => {
+        if (item._id === id) {
+          cart.splice(index, 1);
+        }
+      });
+
+      setCart([...cart]);
+    }
+  };
+
   if (cart.length === 0)
     return (
       <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Cart Empty</h2>
@@ -58,7 +70,9 @@ function Cart() {
               <button onClick={() => increment(product._id)}> + </button>
             </div>
 
-            <div className="delete">X</div>
+            <div className="delete" onClick={() => removeProduct(product._id)}>
+              X
+            </div>
           </div>
         </div>
       ))}
