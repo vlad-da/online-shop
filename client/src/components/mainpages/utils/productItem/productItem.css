@@ -1,11 +1,11 @@
 .product_card {
-min-width: 300px;
-overflow: hidden;
-height: 500px;
-padding: 15px;
-box-shadow: 0 0 15px #ddd;
-margin: 10px 10px;
-position: relative;
+  min-width: 300px;
+  overflow: hidden;
+  height: 500px;
+  padding: 15px;
+  box-shadow: 0 0 15px #ddd;
+  margin: 10px 10px;
+  position: relative;
 }
 .product_card img {
   width: 100%;
@@ -56,4 +56,9 @@ position: relative;
 #btn_view {
   background: teal;
   margin-right: 5px;
+}
+.product_card input {
+  position: absolute;
+  width: 25px;
+  height: 25px;
 }
