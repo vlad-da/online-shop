@@ -111,7 +111,9 @@ const userCtrl = {
 
       await Users.findOneAndUpdate(
         { _id: req.user.id },
-        { cart: req.body.cart }
+        {
+          cart: req.body.cart,
+        }
       );
 
       return res.json({ msg: "Added to cart" });
