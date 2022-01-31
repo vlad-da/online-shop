@@ -30,12 +30,12 @@ function Register() {
   return (
     <div className="login-page">
       <form onSubmit={registerSubmit}>
-        <h2>Register</h2>
+        <h2>Регистрация</h2>
         <input
           type="text"
           name="name"
           required
-          placeholder="Name"
+          placeholder="Имя"
           value={user.name}
           onChange={onChangeInput}
         />
@@ -44,7 +44,7 @@ function Register() {
           type="email"
           name="email"
           required
-          placeholder="Email"
+          placeholder="Почта"
           value={user.email}
           onChange={onChangeInput}
         />
@@ -54,14 +54,14 @@ function Register() {
           name="password"
           required
           autoComplete="on"
-          placeholder="Password"
+          placeholder="Пароль"
           value={user.password}
           onChange={onChangeInput}
         />
 
         <div className="row">
-          <button type="submit">Register</button>
-          <Link to="/login">Login</Link>
+          <button type="submit">Подтвердить</button>
+          <Link to="/login">Войти</Link>
         </div>
       </form>
     </div>

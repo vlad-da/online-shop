@@ -27,19 +27,32 @@ function OrderHistory() {
       getHistory();
     }
   }, [token, isAdmin, setHistory]);
+  function SumOfOrders() {
+    if (history.length === 1) {
+      return "заказ";
+    }
+    if (history.length > 1 && history.length < 5) {
+      return "заказа";
+    }
+    if (history.length >= 5) {
+      return "заказов";
+    }
+  }
 
   return (
     <div className="history-page">
-      <h2>History</h2>
+      <h2>История заказов</h2>
 
-      <h4>You have {history.length} ordered</h4>
+      <h4>
+        У Вас {history.length} {SumOfOrders()}
+      </h4>
 
       <table>
         <thead>
           <tr>
-            <th>Payment ID</th>
-            <th>Date of Purchased</th>
-            <th></th>
+            <th>Индификатор платежа</th>
+            <th>Дата оплаты</th>
+            <th>Информация</th>
           </tr>
         </thead>
         <tbody>
@@ -48,7 +61,7 @@ function OrderHistory() {
               <td>{items.paymentID}</td>
               <td>{new Date(items.createdAt).toLocaleDateString()}</td>
               <td>
-                <Link to={`/history/${items._id}`}>View</Link>
+                <Link to={`/history/${items._id}`}>Детали</Link>
               </td>
             </tr>
           ))}

@@ -29,12 +29,12 @@ function Login() {
   return (
     <div className="login-page">
       <form onSubmit={loginSubmit}>
-        <h2>Login</h2>
+        <h2>Войти</h2>
         <input
           type="email"
           name="email"
           required
-          placeholder="Email"
+          placeholder="Почта"
           value={user.email}
           onChange={onChangeInput}
         />
@@ -44,14 +44,14 @@ function Login() {
           name="password"
           required
           autoComplete="on"
-          placeholder="Password"
+          placeholder="Пароль"
           value={user.password}
           onChange={onChangeInput}
         />
 
         <div className="row">
-          <button type="submit">Login</button>
-          <Link to="/register">Register</Link>
+          <button type="submit">Войти</button>
+          <Link to="/register">Зарегистрироваться</Link>
         </div>
       </form>
     </div>

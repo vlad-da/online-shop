@@ -154,7 +154,7 @@ function CreateProduct() {
 
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <label htmlFor="product_id">Product ID</label>
+          <label htmlFor="product_id">Индификатор товара</label>
           <input
             type="text"
             name="product_id"
@@ -167,7 +167,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Название</label>
           <input
             type="text"
             name="title"
@@ -179,7 +179,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="price">Цена</label>
           <input
             type="number"
             name="price"
@@ -191,7 +191,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Описание</label>
           <textarea
             type="text"
             name="description"
@@ -204,7 +204,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="content">Content</label>
+          <label htmlFor="content">Контент</label>
           <textarea
             type="text"
             name="content"
@@ -217,13 +217,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="categories">Categories: </label>
+          <label htmlFor="categories">Категория: </label>
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-            <option value="">Please select a category</option>
+            <option value="">Пожалуйста, выберите категорию</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
@@ -232,7 +232,7 @@ function CreateProduct() {
           </select>
         </div>
 
-        <button type="submit">{onEdit ? "Update" : "Create"}</button>
+        <button type="submit">{onEdit ? "Обновить" : "Создать"}</button>
       </form>
     </div>
   );

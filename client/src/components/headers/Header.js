@@ -23,10 +23,10 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_product">Create Product</Link>
+          <Link to="/create_product">Создать товар</Link>
         </li>
         <li>
-          <Link to="/category">Categories</Link>
+          <Link to="/category">Категории</Link>
         </li>
       </>
     );
@@ -36,11 +36,11 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/history">History</Link>
+          <Link to="/history">История</Link>
         </li>
         <li>
           <Link to="/" onClick={logoutUser}>
-            Logout
+            Выйти
           </Link>
         </li>
       </>
@@ -59,13 +59,13 @@ function Header() {
 
       <div className="logo">
         <h1>
-          <Link to="/">{isAdmin ? "Admin" : "DevAT Shop"}</Link>
+          <Link to="/">{isAdmin ? "Admin" : "Магазин Видеокарт"}</Link>
         </h1>
       </div>
 
       <ul style={styleMenu}>
         <li>
-          <Link to="/">{isAdmin ? "Products" : "Shop"}</Link>
+          <Link to="/">{isAdmin ? "Каталог товаров" : "Каталог товаров"}</Link>
         </li>
 
         {isAdmin && adminRouter()}
@@ -74,7 +74,7 @@ function Header() {
           loggedRouter()
         ) : (
           <li>
-            <Link to="/login">Login ✥ Register</Link>
+            <Link to="/login">Войти ✥ Регистрация</Link>
           </li>
         )}
 
