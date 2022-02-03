@@ -62,7 +62,7 @@ function Categories() {
   return (
     <div className="categories">
       <form onSubmit={createCategory}>
-        <label htmlFor="category">Категория</label>
+        <label htmlFor="category">Category</label>
         <input
           type="text"
           name="category"
@@ -71,7 +71,7 @@ function Categories() {
           onChange={(e) => setCategory(e.target.value)}
         />
 
-        <button type="submit">{onEdit ? "Обновить" : "Создать"}</button>
+        <button type="submit">{onEdit ? "Update" : "Create"}</button>
       </form>
 
       <div className="col">
@@ -80,10 +80,10 @@ function Categories() {
             <p>{category.name}</p>
             <div>
               <button onClick={() => editCategory(category._id, category.name)}>
-                Обновить
+                Edit
               </button>
               <button onClick={() => deleteCategory(category._id)}>
-                Удалить
+                Delete
               </button>
             </div>
           </div>

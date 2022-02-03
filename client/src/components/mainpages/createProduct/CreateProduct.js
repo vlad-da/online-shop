@@ -8,8 +8,10 @@ const initialState = {
   product_id: "",
   title: "",
   price: 0,
-  description: "",
-  content: "",
+  description:
+    "How to and tutorial videos of cool CSS effect, Web Design ideas,JavaScript libraries, Node.",
+  content:
+    "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
   category: "",
   _id: "",
 };
@@ -154,7 +156,7 @@ function CreateProduct() {
 
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <label htmlFor="product_id">Индификатор товара</label>
+          <label htmlFor="product_id">Product ID</label>
           <input
             type="text"
             name="product_id"
@@ -167,7 +169,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="title">Название</label>
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             name="title"
@@ -179,7 +181,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="price">Цена</label>
+          <label htmlFor="price">Price</label>
           <input
             type="number"
             name="price"
@@ -191,7 +193,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="description">Описание</label>
+          <label htmlFor="description">Description</label>
           <textarea
             type="text"
             name="description"
@@ -204,7 +206,7 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="content">Контент</label>
+          <label htmlFor="content">Content</label>
           <textarea
             type="text"
             name="content"
@@ -217,13 +219,13 @@ function CreateProduct() {
         </div>
 
         <div className="row">
-          <label htmlFor="categories">Категория: </label>
+          <label htmlFor="categories">Categories: </label>
           <select
             name="category"
             value={product.category}
             onChange={handleChangeInput}
           >
-            <option value="">Пожалуйста, выберите категорию</option>
+            <option value="">Please select a category</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
                 {category.name}
@@ -232,7 +234,7 @@ function CreateProduct() {
           </select>
         </div>
 
-        <button type="submit">{onEdit ? "Обновить" : "Создать"}</button>
+        <button type="submit">{onEdit ? "Update" : "Create"}</button>
       </form>
     </div>
   );

@@ -71,9 +71,9 @@ function Products() {
 
       {isAdmin && (
         <div className="delete-all">
-          <span>Выбрать всё</span>
+          <span>Select all</span>
           <input type="checkbox" checked={isCheck} onChange={checkAll} />
-          <button onClick={deleteAll}>Удалить</button>
+          <button onClick={deleteAll}>Delete ALL</button>
         </div>
       )}
 

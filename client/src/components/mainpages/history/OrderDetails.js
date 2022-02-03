@@ -24,10 +24,10 @@ function OrderDetails() {
       <table>
         <thead>
           <tr>
-            <th>Имя</th>
-            <th>Адрес</th>
-            <th>Почтовый индекс</th>
-            <th>Код страны</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>Country Code</th>
           </tr>
         </thead>
         <tbody>
@@ -45,10 +45,10 @@ function OrderDetails() {
       <table style={{ margin: "30px 0px" }}>
         <thead>
           <tr>
-            <th className="first">Товар</th>
-            <th>Название</th>
-            <th>Количество</th>
-            <th>Цена</th>
+            <th></th>
+            <th>Products</th>
+            <th>Quantity</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>

@@ -4,7 +4,7 @@
   transform: scaleY(0.98);
 }
 .amount span {
-  color: red;
+  color: crimson;
   padding: 0 20px;
 }
 .amount button {

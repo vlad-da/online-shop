@@ -15,7 +15,9 @@ function Header() {
 
   const logoutUser = async () => {
     await axios.get("/user/logout");
+
     localStorage.removeItem("firstLogin");
+
     window.location.href = "/";
   };
 
@@ -23,10 +25,10 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/create_product">Создать товар</Link>
+          <Link to="/create_product">Create Product</Link>
         </li>
         <li>
-          <Link to="/category">Категории</Link>
+          <Link to="/category">Categories</Link>
         </li>
       </>
     );
@@ -36,11 +38,11 @@ function Header() {
     return (
       <>
         <li>
-          <Link to="/history">История</Link>
+          <Link to="/history">History</Link>
         </li>
         <li>
           <Link to="/" onClick={logoutUser}>
-            Выйти
+            Logout
           </Link>
         </li>
       </>
@@ -59,13 +61,13 @@ function Header() {
 
       <div className="logo">
         <h1>
-          <Link to="/">{isAdmin ? "Admin" : "Магазин Видеокарт"}</Link>
+          <Link to="/">{isAdmin ? "Admin" : "DevAT Shop"}</Link>
         </h1>
       </div>
 
       <ul style={styleMenu}>
         <li>
-          <Link to="/">{isAdmin ? "Каталог товаров" : "Каталог товаров"}</Link>
+          <Link to="/">{isAdmin ? "Products" : "Shop"}</Link>
         </li>
 
         {isAdmin && adminRouter()}
@@ -74,7 +76,7 @@ function Header() {
           loggedRouter()
         ) : (
           <li>
-            <Link to="/login">Войти ✥ Регистрация</Link>
+            <Link to="/login">Login ✥ Register</Link>
           </li>
         )}
 
